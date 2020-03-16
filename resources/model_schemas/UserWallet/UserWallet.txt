@@ -1,0 +1,1 @@
+php artisan infyom:api_scaffold UserWallet --fieldsFile='UserWallet.json'

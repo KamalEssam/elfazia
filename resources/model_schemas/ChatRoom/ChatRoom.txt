@@ -1,0 +1,1 @@
+php artisan infyom:api_scaffold ChatRoom --fieldsFile='ChatRoom.json'

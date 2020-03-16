@@ -1,0 +1,1 @@
+php artisan infyom:api_scaffold Test6 --fieldsFile='Test6.json'
