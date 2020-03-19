@@ -1,11 +1,6 @@
 @if(auth()->user()->role == \App\User::$roles["admin"]|| auth()->user()->role == \App\User::$roles["manager"])
+
     <li class="nav-item " data-item="">
-        <a class="nav-item-hold" href="{{url('admin/get/card/generator')}}">
-            <i class="nav-icon i-Library"></i>
-            <span class="nav-text">استخراج كروت نقاط</span>
-        </a>
-        <div class="triangle"></div>
-    </li><li class="nav-item " data-item="">
         <a class="nav-item-hold" href="{!! route('centers.index') !!}">
             <i class="nav-icon i-Library"></i>
             <span class="nav-text">الفروع</span>
@@ -45,7 +40,13 @@
         </a>
         <div class="triangle"></div>
     </li>
-
+    <li class="nav-item " data-item="">
+        <a class="nav-item-hold" href="{{url('admin/get/card/generator')}}">
+            <i class="nav-icon i-Library"></i>
+            <span class="nav-text">استخراج كروت نقاط</span>
+        </a>
+        <div class="triangle"></div>
+    </li>
 @endif
 @if(auth()->user()->role == \App\User::$roles["teacher"] || auth()->user()->role == \App\User::$roles["admin"])
     <li class="nav-item " data-item="">
@@ -113,7 +114,13 @@
         </a>
         <div class="triangle"></div>
     </li>
-
+    <li class="nav-item " data-item="">
+        <a class="nav-item-hold" href="{{route('get.info.page',auth()->user()->id)}}">
+            <i class="nav-icon i-Library"></i>
+            <span class="nav-text"> معلومات و شحن النقاط</span>
+        </a>
+        <div class="triangle"></div>
+    </li>
 
     <li class="nav-item " data-item="">
         <a class="nav-item-hold" href="{!! route('questionBanks.student') !!}?isExam=1">

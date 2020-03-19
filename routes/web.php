@@ -18,11 +18,6 @@ Route::get('admin', function () {
 });
 
 
-Route::get('admin/info/point/teacher/{id}', 'pointController@getInfoPage')->name('get.info.page');
-Route::post('admin/info/add/new/student', 'pointController@addStudent')->name('add.new.student');
-
-Route::get('admin/get/card/generator','generateCardController@getcardGenerator');
-Route::post('/admin/generate/code','generateCardController@test');
 
 // Login Routes...
 Route::get('admin/login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
@@ -165,4 +160,10 @@ Route::resource('admin/questionEssays', 'QuestionEssayController');
 Route::get('admin/questionEssays/data/table', 'QuestionEssayController@data')->name('questionEssays.ajax');
 Route::get('admin/questionEssays/delete/records', 'QuestionEssayController@destroy')->name('questionEssays.delete');
 
+Route::get('admin/info/point/teacher/{id}', 'pointController@getInfoPage')->name('get.info.page');
+Route::post('admin/info/add/new/student', 'pointController@addStudent')->name('add.new.student');
+
+Route::get('admin/get/card/generator','generateCardController@getcardGenerator');
+Route::post('admin/generate/code','generateCardController@postcardGenerator');
+Route::post('admin/charge/point','generateCardController@chargeCard');
 

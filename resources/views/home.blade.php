@@ -8,26 +8,29 @@
                 <h1>Dashboard</h1>
 
             </div>
-
+ @if(auth()->user()->role == 1)
             <div class="separator-breadcrumb border-top"></div>
-            <form method="post"action="{{url('admin/generate/code')}}" >
-                <input type="submit" >
-            </form>
+            <form method="post" action="{{url('admin/generate/code')}}">
+                {{csrf_field()}}
                 <h2> اختر قيمه الكارت</h2>
                 <select class="custom-select" style="width: 52%;display: inline-block;" name="card_value"
                         id="inputGroupSelect01">
-                    <option selected>اختر قيمه الكارت</option>
                     <option value="1000">1000</option>
                     <option value="500">500</option>
                     <option value="250">250</option>
                 </select>
-                {{--                            @if ($errors->has('card_value'))--}}
-                {{--                                <span class="help-block">--}}
-                {{--                    <strong>{{ $errors->first('card_value') }}</strong>--}}
-                {{--                    </span>--}}
-                {{--                            @endif--}}
+                @if ($errors->has('card_value'))
+                    <span class="help-block">
+                                    <strong>{{ $errors->first('card_value') }}</strong>
+                                    </span>
+                @endif
                 <input type="submit" class="btn btn-success" value="استخراج الكارت">
-
+            </form>
+@endif
+        </div>
+        @if(isset($cardNumber))
+        <h1>{{$cardNumber}} رقم كارت الشحن</h1>
+        @endif
             {{--<div class="row">--}}
                 {{--<!-- ICON BG -->--}}
                 {{--<div class="col-lg-3 col-md-6 col-sm-6">--}}

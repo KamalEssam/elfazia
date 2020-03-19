@@ -22,7 +22,6 @@
                                 <h1> الايميل : {{$user->email}}</h1>
                                 @foreach($pointData as $pointData)
                                     <h1> الاعدد النقاط المتاحه : {{$pointData->number_of_points}}</h1>
-                                    <h1> عدد الطلاب المتاحين : {{$pointData->number_of_students}}</h1>
                                 @endforeach
                             </div>
                         @endforeach
@@ -33,7 +32,7 @@
             <!-- /.row -->
         </div>
         {{--dffff--}}
-
+@if(auth()->user()->role !=2)
         <div class="main-content-wrap sidenav-open d-flex flex-column">
             <div class="main-content">
                 <div class="breadcrumb">
@@ -176,6 +175,7 @@
             </div>
             <!-- /.row -->
         </div>
+        @endif
         <div class="main-content">
             <div class="breadcrumb">
                 <h1> شحن نقاط</h1>
@@ -185,8 +185,9 @@
                 <div class="col-md-1"></div>
                 <div class="card mb-4 col-md-4">
                     <div class="card-body">
-                        <form method="post" action="">
-                            <h4> ادخل رقم الكارت المكون من 10 اراقام</h4>
+                        <form method="post" action="{{url('admin/charge/point')}}">
+                            {{csrf_field()}}
+                            <h4> ادخل رقم الكارت</h4>
                             <input type="text" name="charge_card" style="width: 52%;display: inline-block;"class="form-control" >
                             <input type="submit" class="btn btn-success" value="شحن الكارت">
                         </form>
